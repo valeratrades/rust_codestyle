@@ -27,12 +27,6 @@ struct Cli {
 	all: bool,
 }
 
-#[derive(Clone, Debug, Default, derive_new::new)]
-struct Issues {
-	instrument: Vec<String>,
-	safety: Vec<String>,
-}
-
 fn check_instrument(fn_items: &[ItemFn], file_path: &Path) -> Vec<String> {
 	let mut missing_instrument = Vec::new();
 	for func in fn_items {
@@ -64,12 +58,7 @@ fn check_safety(fn_items: &[ItemFn], file_content: &str, file_path: &Path) -> Ve
 					+ span_start.column;
 				let preceding_code = &file_content[..byte_offset];
 				if !preceding_code.contains("// SAFETY") && !preceding_code.contains("//SAFETY") {
-					missing_safety_comments.push(format!(
-						"Unsafe block without `// SAFETY` in file {}:{}:{}",
-						file_path.display(),
-						span_start.line,
-						span_start.column
-					));
+					missing_safety_comments.push(format!("Unsafe block without `// SAFETY` in {}:{}:{}", file_path.display(), span_start.line, span_start.column));
 				}
 			}
 		}
@@ -128,20 +117,28 @@ fn main() {
 		}
 	}
 
+	let mut instrument_issues = Vec::new();
 	if cli.instrument {
 		for info in relevant_file_infos.iter() {
 			let issues = check_instrument(&info.fn_items, &info.path);
-			for message in issues {
-				println!("{}", message);
-			}
+			instrument_issues.extend(issues);
 		}
 	}
+	let instrument_issues_string = instrument_issues.join("\n");
+
+	let mut safety_issues = Vec::new();
 	if cli.safety {
 		for info in relevant_file_infos.iter() {
 			let issues = check_safety(&info.fn_items, &info.contents, &info.path);
-			for message in issues {
-				println!("{}", message);
-			}
+			safety_issues.extend(issues);
 		}
 	}
+	let safety_issues_string = safety_issues.join("\n");
+
+	let mut s = instrument_issues_string;
+	if !s.is_empty() {
+		s.push_str("\n\n");
+	}
+	s.push_str(&safety_issues_string);
+	println!("{s}");
 }
