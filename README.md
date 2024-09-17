@@ -5,6 +5,10 @@
 [<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/valeratrades/parse_code/ci.yml?branch=master&style=for-the-badge&style=flat-square" height="20">](https://github.com/valeratrades/parse_code/actions?query=branch%3Amaster) <!--NB: Won't find it if repo is private-->
 ![Lines Of Code](https://img.shields.io/badge/LoC-186-lightblue)
 
+A GA plug to check for properties requiring full `syn` parsing.
+
+Can find missing `//SAFETY` comments on unsafe blocks, for example. For more: `--help`
+
 <!-- markdownlint-disable -->
 <details>
   <summary>
