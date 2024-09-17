@@ -1,8 +1,8 @@
-# parse_code
+# rust_codestyle
 ![Minimum Supported Rust Version](https://img.shields.io/badge/nightly-1.83+-ab6000.svg)
-[<img alt="crates.io" src="https://img.shields.io/crates/v/parse_code.svg?color=fc8d62&logo=rust" height="20" style=flat-square>](https://crates.io/crates/parse_code)
-[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs&style=flat-square" height="20">](https://docs.rs/parse_code)
-[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/valeratrades/parse_code/ci.yml?branch=master&style=for-the-badge&style=flat-square" height="20">](https://github.com/valeratrades/parse_code/actions?query=branch%3Amaster) <!--NB: Won't find it if repo is private-->
+[<img alt="crates.io" src="https://img.shields.io/crates/v/rust_codestyle.svg?color=fc8d62&logo=rust" height="20" style=flat-square>](https://crates.io/crates/rust_codestyle)
+[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs&style=flat-square" height="20">](https://docs.rs/rust_codestyle)
+[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/valeratrades/rust_codestyle/ci.yml?branch=master&style=for-the-badge&style=flat-square" height="20">](https://github.com/valeratrades/rust_codestyle/actions?query=branch%3Amaster) <!--NB: Won't find it if repo is private-->
 ![Lines Of Code](https://img.shields.io/badge/LoC-205-lightblue)
 
 A GA plug to check for properties requiring full `syn` parsing.
