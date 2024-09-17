@@ -140,5 +140,12 @@ fn main() {
 		s.push_str("\n\n");
 	}
 	s.push_str(&safety_issues_string);
-	println!("{s}");
+
+	match s.is_empty() {
+		true => std::process::exit(0),
+		false => {
+			eprintln!("{s}");
+			std::process::exit(1);
+		}
+	}
 }
