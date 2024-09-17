@@ -35,8 +35,9 @@ struct Cli {
 
 fn check_instrument(fn_items: &[ItemFn], file_path: &Path) -> Vec<String> {
 	let mut missing_instrument = Vec::new();
+	let filename = file_path.file_name().unwrap().to_str().unwrap();
 	for func in fn_items {
-		if !func.attrs.iter().any(|attr| attr.path().is_ident("instrument")) {
+		if !func.attrs.iter().any(|attr| attr.path().is_ident("instrument")) && filename != "utils.rs" && func.sig.ident != "main" {
 			let span_start = func.sig.ident.span().start();
 			missing_instrument.push(format!(
 				"No #[instrument] on `{}` in {}:{}:{}",
