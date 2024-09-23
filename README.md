@@ -9,6 +9,8 @@ A GA plug to check for properties requiring full `syn` parsing.
 
 Can find missing `//SAFETY` comments on unsafe blocks, for example. For more: `--help`
 
+FUCK: I've spent like an hour on it, so it'll probably not work as expected 50% of the time.
+
 <!-- markdownlint-disable -->
 <details>
   <summary>
@@ -19,7 +21,9 @@ Can find missing `//SAFETY` comments on unsafe blocks, for example. For more: `-
 <!-- markdownlint-restore -->
 
 ## Usage
-TODO
+```sh
+rust_codestyle ~/place/with/rust/code --instrument # other flags don't work rn
+```
 
 <br>
 
