@@ -151,7 +151,7 @@ fn main() {
 	let mut relevant_file_infos = Vec::new();
 	for entry in WalkDir::new(&cli.target_dir).into_iter().filter_map(Result::ok) {
 		let path = entry.path().to_path_buf();
-		if path.extension().map_or(false, |ext| ext == "rs") {
+		if !path.components().any(|comp| comp == std::path::Component::Normal("target".as_ref())) && path.extension().map_or(false, |ext| ext == "rs") {
 			relevant_file_infos.push(fn_items_in_file(path));
 		}
 	}
