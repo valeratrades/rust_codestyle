@@ -1,3 +1,6 @@
+# ARCHIVED
+use https://github.com/valeratrades/codestyle instead
+
 # rust_codestyle
 ![Minimum Supported Rust Version](https://img.shields.io/badge/nightly-1.83+-ab6000.svg)
 [<img alt="crates.io" src="https://img.shields.io/crates/v/rust_codestyle.svg?color=fc8d62&logo=rust" height="20" style=flat-square>](https://crates.io/crates/rust_codestyle)
